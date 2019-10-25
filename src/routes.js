@@ -1,15 +1,15 @@
 const express = require('express');
 const PersonController = require('./controllers/PersonController');
-const LeasingController = require('./controllers/LeasingController')
+const BookController = require('./controllers/BookController')
 
 const routes = express.Router();
 
 //POST
 routes.post('/person', PersonController.store)
-routes.post('/leasing', LeasingController.store)
+routes.post('/book', BookController.store)
 
 //GET
 routes.get('/person/:id', PersonController.index)
-routes.get('/leasing/:leasingId', LeasingController.findLeasingById)
+routes.get('/book/:bookingId', BookController.findBookById)
 
 module.exports = routes;

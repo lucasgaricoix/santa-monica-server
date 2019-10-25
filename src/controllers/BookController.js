@@ -1,15 +1,15 @@
-const Leasing = require('../model/Leasing');
+const Booking = require('../model/Book');
 const Person = require('../model/Person')
 
 module.exports = {
-  async findLeasingById(req, res) {
-    const leasing = await Leasing.findById(req.params.leasingId);
+  async findBookById(req, res) {
+    const book = await Booking.findById(req.params.bookingId);
     
-    if (leasing) {
-      return res.json(leasing);
+    if (book) {
+      return res.json(book);
     } else {
       return res.status(400).json({ 
-        error: `Leasing with id: ${req.params.leasingId}, not found.`
+        error: `Booking with id: ${req.params.leasingId}, not found.`
       })
     }
   },
