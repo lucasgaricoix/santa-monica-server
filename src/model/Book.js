@@ -5,17 +5,15 @@ const BookSchema = new Schema({
     type: String,
     required: true
   },
-  lastName: String,
   email: {
     type: String,
     required: true
   },
   phoneNumber: String,  
-  checkin: {
+  bookDate: {
     type: Date,
     required: true
   },
-  checkout: Date,
   coolMessage: String,
   createdAt: {
     type: Date,

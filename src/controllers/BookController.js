@@ -1,32 +1,29 @@
-const Booking = require('../model/Book');
-const Person = require('../model/Person')
+const Book = require('../model/Book');
 
 module.exports = {
   async findBookById(req, res) {
-    const book = await Booking.findById(req.params.bookingId);
+    const book = await Book.findById(req.params.bookingId);
     
     if (book) {
       return res.json(book);
     } else {
       return res.status(400).json({ 
-        error: `Booking with id: ${req.params.leasingId}, not found.`
+        error: `Booking with id: ${req.params.bookingId}, not found.`
       })
     }
   },
 
   async store(req, res) {
-    const { person } = req.headers;
 
-    personExists = await Person.findOne({ _id: person });
+    const booking = await Book.create(req.body);
 
-    const leasing = await Leasing.create({
-      checkin: req.body.checkin,
-      checkout: req.body.checkout,
-      leasingType: req.body.leasingType,
-      value: req.body.value,
-      person: personExists
-    });
+    return res.json(booking);
+  },
 
-    return res.json(leasing);
+  async findAll(req, res) {
+
+    const allBook = await Book.find();
+    console.log('allBook', allBook)
+    return res.json(allBook);
   }
 }
