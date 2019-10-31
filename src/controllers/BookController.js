@@ -23,7 +23,6 @@ module.exports = {
   async findAll(req, res) {
 
     const allBook = await Book.find();
-    console.log('allBook', allBook)
     return res.json(allBook);
   }
 }

@@ -15,6 +15,7 @@ const BookSchema = new Schema({
     required: true
   },
   coolMessage: String,
+  isConfirmed: Boolean,
   createdAt: {
     type: Date,
     default: Date.now
