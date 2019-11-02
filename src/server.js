@@ -16,7 +16,8 @@ io.on('connection', socket => {
 })
 
 mongoose.connect('mongodb+srv://lgaricoix:010133@cluster0-ndgtd.mongodb.net/santamonica?retryWrites=true&w=majority', {
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 server.use((req, res, next) => {
