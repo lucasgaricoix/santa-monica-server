@@ -8,8 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
-    "build": "node src/server.js"
+    "start": "node src/server.js"
   },
   "dependencies": {
     "@types/cors": "^2.8.6",
