@@ -13,4 +13,7 @@ routes.get("/book", BookController.findAll);
 //PUT
 routes.put("/book/:id", BookController.update);
 
+//DELETE
+routes.delete("/book/:id", BookController.delete);
+
 module.exports = routes;

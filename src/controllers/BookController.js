@@ -41,8 +41,21 @@ module.exports = {
       return res.json(updatedBook);
     } else {
       return res.status(400).json({
-        error: `Booking with id: ${req.params.bookingId}, not found.`
+        error: `Não foi possível alterar a reserva com id: ${req.params.id}`
       });
     }
+  },
+
+  async delete(req, res) {
+    await Book.findByIdAndDelete({ _id: req.params.id }, error => {
+      if (error) {
+        return res.status(400).json({
+          error: `Não foi possível excluir a reserva com id: ${req.params.id}`,
+          error
+        });
+      } else {
+        return res.json();
+      }
+    });
   }
 };
